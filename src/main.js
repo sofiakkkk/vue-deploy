@@ -1,8 +1,17 @@
 import Vue from 'vue'
 import App from './App.vue'
 
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+
 Vue.config.productionTip = false
 
 new Vue({
-  render: h => h(App),
+	created(){
+		AOS.init({
+			easing: 'ease-out-back',
+			duration: 1000
+		});
+	},
+	render: h => h(App),
 }).$mount('#app')

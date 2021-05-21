@@ -1,28 +1,36 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+	<div id="wrap">
+		<shHeader></shHeader>
+		<shContent v-bind:propsdata="sns"></shContent>
+		<shFooter v-bind:propsdata="sns"></shFooter>
+	</div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import shHeader from './components/shHeader.vue'
+import shContent from './components/shContent.vue'
+import shFooter from './components/shFooter.vue'
+
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+	data (){
+		return {
+			sns:[
+				{el:'blog', name:'네이버블로그', path:'https://post.naver.com/shinsegae-inc'},
+				{el:'youtube', name:'유튜브', path:'https://www.youtube.com/channel/UCDT2efYTZ8y516QjrfsDQSA?view_as=subscriber'},
+				{el:'facebook', name:'페이스북', path:'https://www.facebook.com/shinsegaeinc'}
+			]
+		}
+	},
+	components: { 
+		shHeader, 
+		shContent,
+		shFooter
+	},
+
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
